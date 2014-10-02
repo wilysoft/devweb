@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loanbook</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <% #javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<div id="container">
+	
+        <div id="header" >
+<h1><a href="/">Loan<strong>Books</strong></a></h1>
+<h2>El placer de leer un Libro</h2>
+<img src="/assets/banner001.jpg" width="460" height="100" alt="banner001" />
+        
+        <div class="clear"></div>
+  </div>
+    
+  <div id="nav">
+    	<ul class="sf-menu dropdown">
+        	<li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html">Centro de Información</a></li>
+          <li><a href="#">Preguntas Frecuentes</a></li>
+            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+  </div>
+    
+    <div>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>        
+
+      <p class="navbar-text pull-right">
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      
+    </div>
+
+    <div id="body">
+
+    	<div id="content">
+           <%= yield %>	
+		</div>
+
+
+        
+        <div class="sidebar">
+            <ul>	
+               <li>
+                    <h4><span>Usuarios</span></h4>
+                    <ul class="blocklist">
+                        <li><a href="index.html">Registro</a></li>
+                        <li><a href="examples.html">Busqueda</a></li
+                    ></ul>
+              </li>
+                
+               <li>
+                    <h4><span>Libros</span></h4>
+                    <ul class="blocklist">
+                        <li><a href="http://localhost:3000/books">Registro</a></li>
+                        <li><a href="examples.html">Busqueda</a></li>
+                        <li><a href="http://localhost:3000/authors">Autores</a></li>
+                        <li><a href="http://localhost:3000/categories">Categorias</a></li>
+                    </ul>
+              </li>
+                
+                <li>
+                    <h4><span>Prestamos</span></h4>
+                    <ul class="blocklist">
+                        <li><a href="index.html">Registro</a></li>
+                        <li><a href="examples.html">Busqueda</a></li
+                    ></ul>
+                </li>
+                
+                <li>
+                    <h4><span>Consultas</span></h4>
+                    <ul class="blocklist">
+                        <li><a href="index.html">Pendientes</a></li>
+                        <li><a href="examples.html">Vencidos</a></li
+                    ></ul>
+                </li>           
+                               
+          </ul> 
+        </div>
+    	<div class="clear"></div>
+    </div>
+    <div id="footer">
+        <div class="footer-content">
+    
+                <span class="sitename">LoanBooks.com</span>
+                 <p class="footer-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="examples.html">Centro de Información</a>
+                    <a href="#">Preguntas Frecuentes</a>
+                    <a href="#">Ayuda</a>
+                    <a href="#">Login</a>
+    				<a href="#container" class="backtotop">Back to top</a>
+               	 </p>
+                 <div class="clear"></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; YourSite 2014. Website Design by <a href="http://www.spyka.net">Grupo LoanBooks</a></p>
+      </div>
+    
+    </div>
+</div>
+</body>
+
+
+</html>

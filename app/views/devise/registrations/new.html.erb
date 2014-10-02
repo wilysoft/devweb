@@ -1,0 +1,34 @@
+<h2>Registro</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  
+<div><%= f.label :iduser, "Codigo Usuario" %><br />
+  <%= f.text_field :iduser, autofocus: true %></div>
+
+  <div><%= f.label :password, "Contraseña" %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div><%= f.label :password_confirmation, "Contraseña" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+  <div><%= f.label :name, "Nombres" %><br />
+  <%= f.text_field :name, autofocus: true %></div>
+
+  <div><%= f.label :lastname, "Apellidos" %><br />
+  <%= f.text_field :lastname, autofocus: true %></div>
+
+  <div><%= f.label :birthday, "Fecha Nacimiento" %><br />
+  <%= f.date_field :birthday, autofocus: true %></div>
+
+  <div><%= f.label :email, "Correo" %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+  <div><%= f.label :address, "Direccion" %><br />
+  <%= f.text_field :address, autofocus: true %></div>
+
+  <div><%= f.submit "Registrar" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>
