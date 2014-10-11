@@ -11,11 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<table>
+    <tbody>
+      <tr>
+        <th colspan="2">Información:</th>
+      </tr>
+      <tr>
+        <td class="a1" width="23%"><div><%= f.label :name, "Nombre :" %></div></td>
+        <td class="a1" width="77%"><%= f.text_field :name, autofocus: true %></td>
+        </tr>
+      <tr>
+        <td  class="a1" colspan="2"><%= f.submit "Actualizar" %></td>
+        </tr>
+
+    </tbody>
+</table>
+
 <% end %>

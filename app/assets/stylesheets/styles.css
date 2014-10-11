@@ -1,3 +1,5 @@
+
+
 body {
 	background: #FF2D5A url('/assets/body.png') repeat-x scroll top left;
 	margin:0;
@@ -30,6 +32,8 @@ th {
 td {
 	border-bottom: 1px solid #ccc;
 }
+
+td.a1{border-bottom: 0px solid #ccc;}
 
 code, blockquote {
 	display: block;
@@ -133,9 +137,9 @@ span.required {
 
 h1 {
 	color: #000;
-	font-size: 35px;
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 25px;
 	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;	
 	background: none;
 	border-bottom: none;
 	text-transform: none;
@@ -509,6 +513,7 @@ div.slide-text {
 }
 
 .sidebar li ul.blocklist li a:hover {
+	background: transparent;
 	color: #111;
 }
 

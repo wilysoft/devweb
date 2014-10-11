@@ -3,14 +3,15 @@
 <head>
   <title>Loanbook</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <% #javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%# javascript_include_tag 'application', 'all' %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
 <div id="container">
 	
-        <div id="header" >
+<div id="header" >
 <h1><a href="/">Loan<strong>Books</strong></a></h1>
 <h2>El placer de leer un Libro</h2>
 <img src="/assets/banner001.jpg" width="460" height="100" alt="banner001" />
@@ -20,11 +21,10 @@
     
   <div id="nav">
     	<ul class="sf-menu dropdown">
-        	<li><a href="index.html">Inicio</a></li>
-            <li><a href="index.html">Centro de Información</a></li>
-          <li><a href="#">Preguntas Frecuentes</a></li>
-            <li><a href="#">Ayuda</a></li>
-            <li><a href="#">Login</a></li>
+        	<li><a href="http://localhost:3000/">Inicio</a></li>
+            <li><a href="http://localhost:3000/">Centro de Información</a></li>
+          <li><a href="http://localhost:3000/">Preguntas Frecuentes</a></li>
+            <li><a href="http://localhost:3000/">Ayuda</a></li>
         </ul>
   </div>
     
@@ -38,31 +38,33 @@
 
       <p class="navbar-text pull-right">
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        Bienvenido: <strong><%= "#{current_user.name} #{current_user.lastname}" %></strong>.
+        <%= link_to 'Ver Perfil', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Registrarse", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Ingresar", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
       
     </div>
 
-    <div id="body">
+<div id="body">
 
-    	<div id="content">
-           <%= yield %>	
-		</div>
+        <div id="content">
+           <%= yield %> 
+        </div>
 
 
-        
+        <% if user_signed_in? %>
+
         <div class="sidebar">
             <ul>	
                <li>
                     <h4><span>Usuarios</span></h4>
                     <ul class="blocklist">
-                        <li><a href="index.html">Registro</a></li>
-                        <li><a href="examples.html">Busqueda</a></li
+                        <!--<li><%= link_to "Registro", new_user_registration_path, :class => 'navbar-link'  %></li> -->
+                        <li><a href="http://localhost:3000/users/sign_up">Registro</a></li>
+                        <li><a href="#">Busqueda</a></li
                     ></ul>
               </li>
                 
@@ -70,7 +72,7 @@
                     <h4><span>Libros</span></h4>
                     <ul class="blocklist">
                         <li><a href="http://localhost:3000/books">Registro</a></li>
-                        <li><a href="examples.html">Busqueda</a></li>
+                        <li><a href="#">Busqueda</a></li>
                         <li><a href="http://localhost:3000/authors">Autores</a></li>
                         <li><a href="http://localhost:3000/categories">Categorias</a></li>
                     </ul>
@@ -79,23 +81,27 @@
                 <li>
                     <h4><span>Prestamos</span></h4>
                     <ul class="blocklist">
-                        <li><a href="index.html">Registro</a></li>
-                        <li><a href="examples.html">Busqueda</a></li
+                        <li><a href="#">Registro</a></li>
+                        <li><a href="#">Busqueda</a></li
                     ></ul>
                 </li>
                 
                 <li>
                     <h4><span>Consultas</span></h4>
                     <ul class="blocklist">
-                        <li><a href="index.html">Pendientes</a></li>
-                        <li><a href="examples.html">Vencidos</a></li
+                        <li><a href="#">Pendientes</a></li>
+                        <li><a href="#">Vencidos</a></li
                     ></ul>
                 </li>           
                                
           </ul> 
         </div>
+        <% end %>
+
     	<div class="clear"></div>
     </div>
+
+
     <div id="footer">
         <div class="footer-content">
     
@@ -105,16 +111,15 @@
                     <a href="examples.html">Centro de Información</a>
                     <a href="#">Preguntas Frecuentes</a>
                     <a href="#">Ayuda</a>
-                    <a href="#">Login</a>
     				<a href="#container" class="backtotop">Back to top</a>
                	 </p>
                  <div class="clear"></div>
         </div>
         <div class="footer-bottom">
             <p>&copy; YourSite 2014. Website Design by <a href="http://www.spyka.net">Grupo LoanBooks</a></p>
-      </div>
-    
+        </div>
     </div>
+
 </div>
 </body>
 

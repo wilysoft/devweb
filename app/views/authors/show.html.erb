@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @author.name %>
-</p>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<table>
+    <tbody>
+      <tr>
+        <th colspan="2">Información:</th>
+      </tr>
+      <tr>
+        <td class="a1" width="23%"><strong>Nombre :</strong></td>
+        <td class="a1" width="77%"><%= @author.name %></td>
+        </tr>
+
+    </tbody>
+</table>
+
+<%= link_to 'Modificar', edit_author_path(@author) %> |
+<%= link_to 'Atras', authors_path %>

@@ -28,7 +28,7 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+        format.html { redirect_to @author, notice: 'Autor fue creado Satisfactoriamente.' }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to @author, notice: 'Author was successfully updated.' }
+        format.html { redirect_to @author, notice: 'Autor fue Actualizado Satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @author }
       else
         format.html { render :edit }
@@ -54,9 +54,10 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1
   # DELETE /authors/1.json
   def destroy
+    @gift = Author.find(params[:id])
     @author.destroy
     respond_to do |format|
-      format.html { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
+      #format.html { redirect_to authors_url, notice: 'Autor fue Eliminado Satisfactoriamente.' }
       format.json { head :no_content }
     end
   end

@@ -1,0 +1,9 @@
+<h1>Biblioteca</h1>
+
+<% if user_signed_in? %>
+	<%= image_tag "libreria1.jpg", :alt => "Libreria", :title => "Libreria", width: 640, height: 480 %>
+<% else %>
+
+<%= image_tag "libreria1.jpg", :alt => "Libreria", :title => "Libreria", width: 960, height: 720 %>
+
+<% end %>

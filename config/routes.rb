@@ -1,8 +1,39 @@
 Rails.application.routes.draw do
-  #devise_for :users
-  devise_for :users, controllers: {registrations: 'registrations'}
+  get 'home/index'
 
+  #devise_for :users
+
+  devise_for :users , controllers: {registrations: 'registrations'}
+
+ #devise_scope :users do
+ #   get    'signin',  to: 'users/sessions#new',     as: :new_admin_session
+ #   post   'signin',  to: 'users/sessions#create',  as: :admin_session
+ #   delete 'signout', to: 'users/sessions#destroy', as: :destroy_admin_session
+ # end
+
+  #devise_for :users do
+  #  get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session, via: :get
+  #end
+
+  #get '/logout', :to => 'sessions#destroy', via: [:get, :post]
+
+  #get '/sign_out' => 'users/sessions#destroy'
+
+ # devise_for :users do
+ #   delete 'logout', to 'sessions#destroy', as :destroy_user_session
+  #  get 'login', to: 'sessions#new', as: :new_user_session
+ #   put 'login', to: 'sessions#create', as: :user_session
+ # end
+
+  #get '/signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+ 
+
+ # devise_for :users do
+ #   get '/users/sign_out' => 'devise/sessions#destroy'
+ # end
  # get 'books#index'
+
+
 
   resources :books
 
@@ -15,7 +46,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-  root 'books#index'
+  # root 'books#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

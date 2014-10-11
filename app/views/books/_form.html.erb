@@ -11,18 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :Titulo %><br>
-    <%= f.text_field :title %>
-  </div>
 
- 
-  
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<table>
+    <tbody>
+      <tr>
+        <th colspan="2">Información:</th>
+      </tr>
+      <tr>
+        <td class="a1" width="23%"><%= f.label :book_id, "Codigo:" %></td>
+        <td class="a1" width="77%"><%= f.text_field :book_id %></td>
+      </tr>
+      <tr>
+        <td class="a1" width="23%"><%= f.label :Titulo, "Titulo" %></td>
+        <td class="a1" width="77%"><%= f.text_field :title %></td>
+      </tr>
+      <tr>
+        <td class="a1" width="23%"><%= f.label :author_id, "Autor" %></td>
+        <td class="a1" width="77%"><%= f.collection_select :author_id, Author.all, :id, :name, :prompt => true %></td>
+      </tr>
+      <tr>
+        <td class="a1" width="23%"><%= f.label :category_id, "Cateroria" %></td>
+        <td class="a1" width="77%"><%= f.collection_select :category_id, Category.all, :id, :name, :prompt => true %></td>
+      </tr>
+      <tr>
+        <td class="a1" width="23%"><%= f.label :description %></td>
+        <td class="a1" width="77%"><%= f.text_field :description %></td>
+      </tr>                  
+      <tr>
+        <td  class="a1" colspan="2"><div class="actions"><%= f.submit "Grabar" %></div></td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+
 <% end %>

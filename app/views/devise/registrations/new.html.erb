@@ -1,34 +1,45 @@
-<h2>Registro</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <table>
+      <tbody><tr>
+        <th colspan="2">Registro</th>
+        </tr>
+      <tr>
+        <td class="a1" width="23%"><div><%= f.label :iduser, "Codigo Usuario" %></div></td>
+        <td class="a1" width="77%"><%= f.text_field :iduser, autofocus: true %></td>
+        </tr>
+      <tr>
+        <td class="a1" ><%= f.label :password, "Contraseña" %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %></td>
+        <td class="a1" ><%= f.password_field :password, autocomplete: "off" %></td>
+      </tr>
+      <tr>
+        <td class="a1" ><%= f.label :password_confirmation, "Contraseña" %></td>
+        <td class="a1" ><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
+      </tr>
+      <tr>
+        <td class="a1" ><%= f.label :name, "Nombres" %></td>
+        <td class="a1" ><%= f.text_field :name, autofocus: true %></td>
+      </tr>      
+      <tr>
+        <td class="a1" ><%= f.label :lastname, "Apellidos" %></td>
+        <td class="a1" ><%= f.text_field :lastname, autofocus: true %></td>
+      </tr>   
+      <tr>
+        <td class="a1" ><%= f.label :birthday, "Fecha Nacimiento" %></td>
+        <td class="a1" ><%= f.date_field :birthday, autofocus: true %></td>
+      </tr>   
+      <tr>
+        <td class="a1" ><%= f.label :email, "Correo" %></td>
+        <td class="a1" ><%= f.email_field :email, autofocus: true %></td>
+      </tr>    
+      <tr>
+        <td class="a1" ><%= f.label :address, "Direccion" %></td>
+        <td class="a1" ><%= f.text_field :address, autofocus: true %></td>
+      </tr>                              
+      <tr>
+        <td  class="a1" colspan="2"><%= f.submit "Registrar" %></td>
+      </tr>
 
-  
-<div><%= f.label :iduser, "Codigo Usuario" %><br />
-  <%= f.text_field :iduser, autofocus: true %></div>
-
-  <div><%= f.label :password, "Contraseña" %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation, "Contraseña" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.label :name, "Nombres" %><br />
-  <%= f.text_field :name, autofocus: true %></div>
-
-  <div><%= f.label :lastname, "Apellidos" %><br />
-  <%= f.text_field :lastname, autofocus: true %></div>
-
-  <div><%= f.label :birthday, "Fecha Nacimiento" %><br />
-  <%= f.date_field :birthday, autofocus: true %></div>
-
-  <div><%= f.label :email, "Correo" %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.label :address, "Direccion" %><br />
-  <%= f.text_field :address, autofocus: true %></div>
-
-  <div><%= f.submit "Registrar" %></div>
+    </tbody></table>
 <% end %>
 
 <%= render "devise/shared/links" %>
